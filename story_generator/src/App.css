@@ -1,0 +1,27 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  width: 600px;
+  margin: 2rem auto;
+}
+
+.container textarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.container button {
+  margin-top: 0.5rem;
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  background: #e23e57;
+  color: white;
+  padding: 0.5rem 1rem;
+}
