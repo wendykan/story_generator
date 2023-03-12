@@ -12,7 +12,7 @@ const fetchData = async (childname: string, theme: string, lang: string) => {
   const response = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
-      messages: [{role: 'system', content: `Create a bedtime story with the main character named "${childname}" and the story happened in the "${theme}". + (lang == "zh" ? "請用中文說這個故事")`}],
+      messages: [{role: 'system', content: `Create a bedtime story with the main character named ${childname} and the story happened in the ${theme}.` + (lang === "zh" ? "請用中文說這個故事" : '')}],
       model: model,
       max_tokens: 1000,
       temperature: 1,
@@ -26,6 +26,7 @@ const fetchData = async (childname: string, theme: string, lang: string) => {
       },
     }
   );
+  console.log(`Create a bedtime story with the main character named ${childname} and the story happened in the ${theme}.` + (lang === "zh" ? "請用中文說這個故事" : ''))
   return response.data.choices[0].message.content;
 };
 
@@ -53,7 +54,7 @@ function ChattyApp() {
         rows={1}
         placeholder=""
       />
-      <h3>The story happened in: 
+      <h3>The story happened in the: 
       <select onChange={(event) => setTheme(event.target.value)}>
         <option value="anywhere">Choose a theme ...</option>
         <option value="ocean">Ocean</option>

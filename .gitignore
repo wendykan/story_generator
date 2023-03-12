@@ -1,2 +1,3 @@
 story_generator/.env
 */.env
+story_generator/.firebase/*
